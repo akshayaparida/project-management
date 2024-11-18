@@ -11,23 +11,25 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",  // Recommended for better JSX handling with React 17+
+    "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".", // Set the base directory for imports
+    "paths": {
+      "@/*": ["./*"] // Map `@` to the root of the client directory
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@client/*": ["client/*"]  // Adjust the alias path if necessary
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "__tests__/**/*.{ts,tsx}"  // Ensures tests are included
+    "app/**/*", // Ensure the app directory is included
+    "__tests__/**/*.{ts,tsx}"
   ],
   "exclude": ["node_modules"]
 }
